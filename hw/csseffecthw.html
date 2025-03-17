@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Elements with Cascading Effects</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin: 50px;
+        }
+
+        /* Cascading Bounce and Fade Effect */
+        .ball {
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            border-radius: 50%;
+            position: relative;
+            animation: bounce 2s infinite ease-in-out, fade 2s infinite alternate;
+        }
+        @keyframes bounce {
+            0%, 100% {
+                top: 0;
+            }
+            50% {
+                top: 100px;
+            }
+        }
+        @keyframes fade {
+            0% { opacity: 1; }
+            100% { opacity: 0.5; }
+        }
+
+        /* Fading and Scaling Text */
+        .fade-text {
+            font-size: 24px;
+            font-weight: bold;
+            animation: fade 3s infinite, scaleUp 3s infinite alternate;
+        }
+        @keyframes scaleUp {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.5); }
+        }
+
+        /* Rotating and Color Changing Square */
+        .square {
+            width: 60px;
+            height: 60px;
+            background-color: blue;
+            margin: 20px auto;
+            animation: rotate 3s infinite linear, colorChange 3s infinite alternate;
+        }
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        @keyframes colorChange {
+            0% { background-color: blue; }
+            100% { background-color: purple; }
+        }
+
+        /* Button with Hover and Cascading Effect */
+        .animated-button {
+            background-color: green;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.3s, background-color 0.3s;
+            animation: buttonPulse 2s infinite alternate;
+        }
+        .animated-button:hover {
+            transform: scale(1.2);
+            background-color: darkgreen;
+        }
+        @keyframes buttonPulse {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
+        }
+    </style>
+</head>
+<body>
+    <h2>Animated Elements with Cascading Effects</h2>
+    
+    <div class="ball"></div>
+    <p class="fade-text">Watch me fade, scale, and animate!</p>
+    <div class="square"></div>
+    <button class="animated-button">Hover me!</button>
+</body>
+</html>
