@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pseudo Class Example</title>
+  <style>
+    /* Style for all buttons */
+    button {
+      background-color: lightblue;
+      border: 2px solid blue;
+      padding: 10px;
+      margin: 5px;
+      cursor: pointer;
+    }
+
+    /* When you hover over a button */
+    button:hover {
+      background-color: deepskyblue;
+    }
+
+    /* When you click (active) a button */
+    button:active {
+      background-color: dodgerblue;
+    }
+
+    /* Style only the first paragraph */
+    p:first-child {
+      color: green;
+      font-weight: bold;
+    }
+
+    /* Style visited links */
+    a:visited {
+      color: purple;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Welcome to My Page</h1>
+
+  <p>This paragraph is the first one and turns green!</p>
+  <p>This one is normal.</p>
+
+  <a href="https://example.com" target="_blank">Visit Example.com</a><br><br>
+
+  <button>Click Me!</button>
+  <button>Or Me!</button>
+
+</body>
+</html>
