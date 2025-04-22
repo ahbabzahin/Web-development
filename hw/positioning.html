@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CSS Positioning Example</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .box {
+      width: 150px;
+      height: 100px;
+      padding: 10px;
+      color: white;
+      text-align: center;
+      margin: 10px;
+    }
+
+    .static-box {
+      background-color: steelblue;
+      position: static;
+    }
+
+    .relative-box {
+      background-color: tomato;
+      position: relative;
+      top: 20px;
+      left: 20px;
+    }
+
+    .absolute-box {
+      background-color: seagreen;
+      position: absolute;
+      top: 150px;
+      left: 200px;
+    }
+
+    .fixed-box {
+      background-color: purple;
+      position: fixed;
+      top: 20px;
+      right: 20px;
+    }
+
+    .container {
+      position: relative;
+      height: 400px;
+      border: 2px dashed gray;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>CSS Positioning Demo</h2>
+
+  <div class="box static-box">Static</div>
+  <div class="box relative-box">Relative</div>
+
+  <div class="container">
+    <div class="box absolute-box">Absolute</div>
+  </div>
+
+  <div class="box fixed-box">Fixed</div>
+
+  <p>Scroll down to see how fixed position behaves.</p>
+  <div style="height: 1000px;"></div>
+
+</body>
+</html>
