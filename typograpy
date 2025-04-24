@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Beginner Typography Styles</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    .style1 {
+      font-size: 24px;
+      font-weight: bold;
+      color: darkblue;
+    }
+
+    .style2 {
+      font-size: 18px;
+      font-style: italic;
+      color: darkgreen;
+    }
+
+    .style3 {
+      font-family: 'Courier New', monospace;
+      font-size: 16px;
+      background-color: #f0f0f0;
+      padding: 5px;
+    }
+
+    .style4 {
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 20px;
+      color: maroon;
+    }
+
+    .style5 {
+      line-height: 1.8;
+      font-size: 16px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h1 class="style1">Bold and Big Title</h1>
+  <p class="style2">This is an italic and green paragraph.</p>
+  <p class="style3">This one looks like code, using a monospace font.</p>
+  <p class="style4">uppercase and spaced out</p>
+  <p class="style5">
+    This paragraph has more line spacing. It’s easier to read when the lines are not too close to each other.
+  </p>
+</body>
+</html>
