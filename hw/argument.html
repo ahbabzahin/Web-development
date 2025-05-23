@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sum of Arguments</title>
+</head>
+<body>
+  <h1>Sum of Arguments</h1>
+  <p>Enter two numbers to add them:</p>
+
+  <input type="number" id="num1" placeholder="First number">
+  <input type="number" id="num2" placeholder="Second number">
+  <button onclick="sumArguments()">Add</button>
+
+  <p id="sumResult"></p>
+
+  <p>Enter an angle (in degrees) to get sine value:</p>
+  <input type="number" id="angle" placeholder="Angle in degrees">
+  <button onclick="showSine()">Show Sine</button>
+
+  <p id="sineResult"></p>
+
+  <script>
+    function sumArguments() {
+      const n1 = parseFloat(document.getElementById("num1").value);
+      const n2 = parseFloat(document.getElementById("num2").value);
+      const sum = n1 + n2;
+      document.getElementById("sumResult").innerText = "Sum: " + sum;
+    }
+
+    function showSine() {
+      const degrees = parseFloat(document.getElementById("angle").value);
+      const radians = degrees * (Math.PI / 180); // Convert to radians
+      const sineValue = Math.sin(radians);
+      document.getElementById("sineResult").innerText = "Sine of " + degrees + "° is: " + sineValue.toFixed(4);
+    }
+  </script>
+</body>
+</html>
