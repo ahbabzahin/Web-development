@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Object and Array Demo</title>
+</head>
+<body>
+  <h2>JavaScript Object and Array Example</h2>
+  <pre id="output"></pre>
+
+  <script>
+    const person = {
+      name: "Alice",
+      age: 25,
+      city: "New York"
+    };
+
+    const colors = ["red", "green", "blue", "yellow"];
+
+    const output = document.getElementById("output");
+
+    output.innerHTML += "Person Name (object key): " + person.name + "\n";
+    output.innerHTML += "Person Age (object key): " + person["age"] + "\n";
+
+    output.innerHTML += "\nFirst color (index 0): " + colors[0] + "\n";
+    output.innerHTML += "Last color (index 3): " + colors[3] + "\n";
+
+    output.innerHTML += "\nColors joined: " + colors.join(", ") + "\n";
+
+    const removedColor = colors.pop();
+    output.innerHTML += "\nRemoved last color using pop(): " + removedColor + "\n";
+    output.innerHTML += "Array after pop(): " + colors.join(", ") + "\n";
+  </script>
+</body>
+</html>
