@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><object data="" type=""></object></title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html>
+<head>
+    <title>Object and Array Project</title>
+</head>
+<body>
+    <h2>Object and Array Display</h2>
+    <div id="output"></div>
+
+    <script>
+        
+        const person1 = { name: "Alice", age: 25 };
+        const person2 = { name: "Bob", age: 30 };
+        const person3 = { name: "Charlie", age: 35 };
+
+        
+        const people = [person1, person2, person3];
+
+        
+        let output = "<h3>Individual Properties:</h3>";
+        output += `<p>${people[0].name} is ${people[0].age} years old.</p>`;
+        output += `<p>${people[1].name} is ${people[1].age} years old.</p>`;
+        output += `<p>${people[2].name} is ${people[2].age} years old.</p>`;
+
+        
+        const names = people.map(p => p.name);
+        output += "<h3>Names Joined:</h3>";
+        output += `<p>${names.join(", ")}</p>`;
+
+        
+        const removed = people.pop();
+        output += "<h3>After Pop:</h3>";
+        output += `<p>Removed: ${removed.name}</p>`;
+        output += `<p>Remaining: ${people.map(p => p.name).join(", ")}</p>`;
+
+        
+        document.getElementById("output").innerHTML = output;
+    </script>
+</body>
+</html>
+
+</body>
+</html>
