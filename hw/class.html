@@ -1,0 +1,40 @@
+class Animal {
+    String name;
+    int age;
+
+    Animal(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    void displayInfo() {
+        System.out.println("Name: " + name);
+        System.out.println("Age: " + age);
+    }
+
+    static void greeting() {
+        System.out.println("Welcome to the Animal Kingdom!");
+    }
+}
+
+class Dog extends Animal {
+    String breed;
+
+    Dog(String name, int age, String breed) {
+        super(name, age);
+        this.breed = breed;
+    }
+
+    void displayDogInfo() {
+        displayInfo();
+        System.out.println("Breed: " + breed);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Animal.greeting();
+        Dog myDog = new Dog("Buddy", 3, "Golden Retriever");
+        myDog.displayDogInfo();
+    }
+}
