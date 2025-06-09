@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Handle Errors in JS</title>
+</head>
+<body>
+    <h2>Handle Errors in JavaScript</h2>
+    <p>Enter a number to divide 100 by:</p>
+    <input type="text" id="userInput" placeholder="Enter a number">
+    <br><br>
+    <button onclick="divideNumber()">Submit</button>
+
+    <h3>Result:</h3>
+    <p id="output"></p>
+
+    <script>
+        function divideNumber() {
+            let input = document.getElementById("userInput").value;
+            let output = document.getElementById("output");
+
+            try {
+                if (input.trim() === "") {
+                    throw new Error("Input is empty.");
+                }
+
+                let number = parseFloat(input);
+
+                if (isNaN(number)) {
+                    throw new Error("Input is not a valid number.");
+                }
+
+                if (number === 0) {
+                    throw new Error("Cannot divide by zero.");
+                }
+
+                let result = 100 / number;
+                output.textContent = "Result: " + result;
+            } catch (error) {
+                output.textContent = "Error: " + error.message;
+            }
+        }
+    </script>
+</body>
+</html>
