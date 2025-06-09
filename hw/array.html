@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Map and Sort Array</title>
+</head>
+<body>
+    <h2>Map and Arrange an Array</h2>
+    <p>Enter numbers separated by commas (e.g., 5, 2, 9, 1):</p>
+    <input type="text" id="inputArray" placeholder="Enter numbers here">
+    
+    <p>Enter a number to multiply each element by:</p>
+    <input type="number" id="multiplier" placeholder="Enter multiplier">
+    
+    <br><br>
+    <button onclick="mapAndSort()">Submit</button>
+
+    <h3>Results:</h3>
+    <p><strong>Mapped Array:</strong> <span id="mappedOutput"></span></p>
+    <p><strong>Ascending Order:</strong> <span id="ascOutput"></span></p>
+    <p><strong>Descending Order:</strong> <span id="descOutput"></span></p>
+
+    <script>
+        function mapAndSort() {
+            let input = document.getElementById("inputArray").value;
+            let multiplier = parseInt(document.getElementById("multiplier").value);
+            let numbers = input.split(',').map(num => parseInt(num.trim()));
+            let mappedArray = numbers.map(n => n * multiplier);
+            let ascending = [...mappedArray].sort((a, b) => a - b);
+            let descending = [...mappedArray].sort((a, b) => b - a);
+            document.getElementById("mappedOutput").textContent = mappedArray.join(', ');
+            document.getElementById("ascOutput").textContent = ascending.join(', ');
+            document.getElementById("descOutput").textContent = descending.join(', ');
+        }
+    </script>
+</body>
+</html>
