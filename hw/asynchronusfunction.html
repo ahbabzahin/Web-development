@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Asynchronous Functions in JS</title>
+</head>
+<body>
+    <h2>Async/Await Example</h2>
+    <button onclick="startProcess()">Start</button>
+
+    <h3>Output:</h3>
+    <p id="output"></p>
+
+    <script>
+        function delay(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+        async function fetchData() {
+            await delay(1000);
+            return "Data received";
+        }
+
+        async function startProcess() {
+            let output = document.getElementById("output");
+            output.textContent = "Loading...";
+            let data = await fetchData();
+            output.textContent = "Result: " + data;
+        }
+    </script>
+</body>
+</html>
