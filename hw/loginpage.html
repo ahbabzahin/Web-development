@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Validation</title>
+</head>
+<body>
+    <h2>Login Form</h2>
+
+    <label for="name">Name:</label>
+    <input type="text" id="name"><br><br>
+
+    <label for="age">Age:</label>
+    <input type="number" id="age"><br><br>
+
+    <button onclick="validateForm()">Submit</button>
+
+    <h3>Result:</h3>
+    <p id="result"></p>
+
+    <script>
+        function validateForm() {
+            let name = document.getElementById("name").value.trim();
+            let age = parseInt(document.getElementById("age").value);
+            let result = document.getElementById("result");
+
+            if (name === "") {
+                result.textContent = "Name is required.";
+            } else if (isNaN(age) || age < 18) {
+                result.textContent = "You must be at least 18 years old.";
+            } else {
+                result.textContent = "Access granted. Welcome, " + name + "!";
+            }
+        }
+    </script>
+</body>
+</html>
