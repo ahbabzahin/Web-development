@@ -2,95 +2,201 @@
 <html lang="en">
 
 <head>
-
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
-    <title>Hello, world!</title>
+    <title>Football World</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Rubik', sans-serif;
+            background-color: #121212;
+            color: #f0f0f0;
+        }
+
+        .navbar, .card, .carousel, .btn {
+            background-color: #1e1e1e;
+        }
+
+        .nav-link,
+        .navbar-brand,
+        .btn-outline-success,
+        .btn-primary {
+            color: #f0f0f0 !important;
+        }
+
+        .form-control {
+            background-color: #2b2b2b;
+            color: #fff;
+            border: none;
+        }
+
+        .form-control:focus {
+            background-color: #333;
+            color: #fff;
+        }
+
+        .carousel img {
+            height: 500px;
+            object-fit: cover;
+        }
+
+        .card img {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-title {
+            font-weight: 600;
+        }
+
+        .card-body {
+            color: #ddd;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        .btn-outline-success:hover {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .list-unstyled li::before {
+            content: "• ";
+            color: #28a745;
+        }
+
+        hr {
+            border-color: #444;
         }
     </style>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+    <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img height="50" width="50" class="rounded-circle"
-                    src="https://th.bing.com/th/id/OIP.LZuVYCxXiGZ4eWxjV1-TTAHaE8?w=261&h=180&c=7&r=0&o=7&pid=1.7&rm=3"
-                    alt=""></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
+            <a class="navbar-brand" href="#">
+                <img height="50" width="50" class="rounded-circle" src="https://th.bing.com/th/id/OIP.LZuVYCxXiGZ4eWxjV1-TTAHaE8?w=261&h=180&c=7&r=0&o=7&pid=1.7&rm=3" alt="Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
                 <span class="navbar-toggler-icon"></span>
             </button>
+
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Football</a>
-                    </li>
+                    <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About Football</a></li>
                 </ul>
-                <li class="nav-item">
-                    <a class="nav-link" href="#"></a>
-                </li>
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <form class="d-flex ms-3">
+                    <input class="form-control me-2" type="search" placeholder="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
             </div>
         </div>
     </nav>
+
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-  </div>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img height="600vh" src="https://www.bing.com/th/id/OIP.BRBZf9Gb2itiBI7MP1Uu4QHaFA?w=248&h=211&c=8&rs=1&qlt=90&o=6&cb=iavawebpc1&pid=3.1&rm=2" class="d-block w-100" alt="...">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="https://www.bing.com/th/id/OIP.BRBZf9Gb2itiBI7MP1Uu4QHaFA?w=248&h=211&c=8&rs=1&qlt=90&o=6&cb=iavawebpc1&pid=3.1&rm=2" class="d-block w-100" alt="Football stadium">
+            </div>
+            <div class="carousel-item">
+                <img src="https://www.bing.com/th/id/OIP.S7hwGXAMS7k9XIjabNHwegHaK4?w=160&h=211&c=8&rs=1&qlt=90&o=6&cb=iavawebpc1&pid=3.1&rm=2" class="d-block w-100" alt="Celebration">
+            </div>
+            <div class="carousel-item">
+                <img src="https://th.bing.com/th/id/OIP.OsvppXxw0Je1ouTxnQkcLAHaEK?w=306&h=180&c=7&r=0&o=7&pid=1.7&rm=3" class="d-block w-100" alt="Match Action">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
     </div>
-    <div class="carousel-item">
-      <img height="600vh" src="https://www.bing.com/th/id/OIP.S7hwGXAMS7k9XIjabNHwegHaK4?w=160&h=211&c=8&rs=1&qlt=90&o=6&cb=iavawebpc1&pid=3.1&rm=2" class="d-block w-100" alt="...">
+
+    <div class="container my-5 text-center" id="about">
+        <h1 class="display-4">Welcome to Football World</h1>
+        <p class="lead">Explore the latest news, scores, and stories from the heart of the game.</p>
+        <hr class="my-4">
+        <p>From matchday drama to legendary rivalries, dive into the world where passion meets skill.</p>
+        <h2 class="mt-5">About Football</h2>
     </div>
-    <div class="carousel-item">
-      <img height="600vh" src="https://th.bing.com/th/id/OIP.OsvppXxw0Je1ouTxnQkcLAHaEK?w=306&h=180&c=7&r=0&o=7&pid=1.7&rm=3" class="d-block w-100" alt="...">
+
+    <div class="container my-5">
+        <div class="row align-items-center">
+            <div class="col-md-6 mb-4 mb-md-0">
+                <img class="img-fluid rounded" src="https://th.bing.com/th/id/OIP.gaR0zG1VwUM3xf4mPAqqBAHaEK?w=312&h=180&c=7&r=0&o=7&pid=1.7&rm=3" alt="Football players">
+            </div>
+            <div class="col-md-6">
+                <h4>Football, also known as soccer, is a global sport played between two teams of 11 players.</h4>
+                <p>Played on a rectangular field with a goal at each end, the aim is to score more goals than the opponent by getting the ball into the net.</p>
+                <p>It’s governed by the Laws of the Game, with major tournaments like the FIFA World Cup and UEFA Champions League bringing nations and clubs together.</p>
+            </div>
+        </div>
     </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
-    <h1></h1>
 
-    <!-- Optional JavaScript; choose one of the two! -->
+    <div class="container my-5">
+        <div class="row g-4 justify-content-center">
+            <div class="card" style="width: 18rem;">
+                <img src="data:image/webp;base64,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" class="card-img-top" alt="Football Rules">
+                <div class="card-body">
+                    <h5 class="card-title">Key Rules</h5>
+                    <ul class="card-text list-unstyled">
+                        <li>11 Players per team</li>
+                        <li>90 minutes (2 halves)</li>
+                        <li>Score by getting the ball into the net</li>
+                        <li>Offside: no sneaky positioning</li>
+                        <li>No tripping or handballs (except goalie)</li>
+                    </ul>
+                </div>
+            </div>
 
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
+            <div class="card" style="width: 18rem;">
+                <img src="https://th.bing.com/th/id/OIP.zGAWV02lmBxWBkXSe5FiNAHaE0?w=256&h=180&c=7&r=0&o=7&pid=1.7&rm=3" class="card-img-top" alt="Leagues">
+                <div class="card-body">
+                    <h5 class="card-title">Top Leagues</h5>
+                    <ul class="card-text list-unstyled">
+                        <li>EPL (England)</li>
+                        <li>La Liga (Spain)</li>
+                        <li>Serie A (Italy)</li>
+                        <li>Bundesliga (Germany)</li>
+                        <li>Ligue 1 (France)</li>
+                        <li>MLS (USA/Canada)</li>
+                        <li>Brasileirão (Brazil)</li>
+                        <li>Argentine Primera</li>
+                        <li>Saudi Pro League</li>
+                        <li>Eredivisie (Netherlands)</li>
+                    </ul>
+                </div>
+            </div>
 
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-    -->
+            <div class="card" style="width: 18rem;">
+                <img src="https://th.bing.com/th/id/OIP.b7Jk8Ga0e3xmk07oS7-vcwHaFH?w=259&h=180&c=7&r=0&o=7&pid=1.7&rm=3" class="card-img-top" alt="Football HQ">
+                <div class="card-body">
+                    <h5 class="card-title">Governing Body</h5>
+                    <p class="card-text">
+                        FIFA is the global headquarters of football, managing international tournaments and enforcing the Laws of the Game. It's where global decisions are made.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 </body>
 
 </html>
