@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Final Project</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+        }
+
+        header {
+            background-image: url('https://via.placeholder.com/1200x300?text=My+Banner');
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+        }
+
+        nav {
+            background-color: #1f1f1f;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+        }
+
+        nav a:hover {
+            background-color: #333;
+            border-radius: 5px;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        .portfolio-item, .restaurant-item {
+            background-color: #1e1e1e;
+            margin: 15px 0;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .portfolio-item h3, .restaurant-item h3 {
+            margin-top: 0;
+        }
+
+        .restaurant-item img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+        footer {
+            background-color: #1f1f1f;
+            text-align: center;
+            padding: 15px;
+            margin-top: 20px;
+        }
+
+        h2 {
+            border-bottom: 2px solid #333;
+            padding-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<header></header>
+
+<nav>
+    <a href="#">Home</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#restaurant">Restaurant</a>
+    <a href="#">Contact</a>
+</nav>
+
+<main>
+    <section id="portfolio">
+        <h2>My Portfolio</h2>
+        <div class="portfolio-item">
+            <h3>Website Design</h3>
+            <p>Designed a clean and modern website layout using HTML and CSS.</p>
+        </div>
+        <div class="portfolio-item">
+            <h3>JavaScript Game</h3>
+            <p>Created an interactive number guessing game using JavaScript.</p>
+        </div>
+        <div class="portfolio-item">
+            <h3>App Mockup</h3>
+            <p>Designed a mockup of a food delivery app using Figma and CSS Grid.</p>
+        </div>
+    </section>
+
+    <section id="restaurant">
+        <h2>Our Restaurant</h2>
+        <div class="restaurant-item">
+            <h3>Welcome to Foodie's Paradise</h3>
+            <p>Enjoy delicious meals made with love and fresh ingredients.</p>
+            <img src="https://via.placeholder.com/800x300?text=Restaurant+Banner" alt="Restaurant Banner">
+        </div>
+        <div class="restaurant-item">
+            <h3>Our Specials</h3>
+            <ul>
+                <li>Grilled Chicken with Herbs</li>
+                <li>Spicy Veggie Pizza</li>
+                <li>Classic Cheeseburger</li>
+                <li>Fresh Mango Smoothie</li>
+            </ul>
+        </div>
+    </section>
+</main>
+
+<footer>
+    &copy; 2025 My Website | All Rights Reserved
+</footer>
+
+</body>
+</html>
