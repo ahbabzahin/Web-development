@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Bank App – Part 3</title>
+  <style>
+    /* ----------  GLOBAL  ---------- */
+    *{box-sizing:border-box}  html,body{margin:0;padding:0;font-family:Arial,sans-serif}
+    body{background:#121212;color:#fff}
+    header{background:#1f1f1f;padding:20px;text-align:center}
+    h1{margin:0}
+    .container{max-width:720px;margin:30px auto;background:#1e1e1e;padding:20px;border-radius:10px}
+    label,input,button{display:block;width:100%;margin-bottom:15px}
+    input{padding:10px;font-size:16px;border:none;border-radius:5px}
+    button{background:#007bff;color:#fff;font-size:16px;padding:10px;border:none;border-radius:5px;cursor:pointer}
+    button:hover{background:#0056b3}
+
+    /* ----------  BANK SECTION  ---------- */
+    #balance{font-size:24px;margin-bottom:10px}
+    #totals{margin-bottom:25px;font-size:14px}
+    #totals span{display:inline-block;margin-right:15px}
+    .history h3{margin:25px 0 10px}
+    .transaction{display:flex;justify-content:space-between;align-items:center;padding:10px;background:#2a2a2a;border-left:5px solid;margin-bottom:10px;border-radius:5px}
+    .income{border-color:#00ff00}
+    .expense{border-color:#ff4040}
+    .delete-btn{background:#ff4040;border:none;color:#fff;padding:5px 9px;border-radius:4px;cursor:pointer}
+    .delete-btn:hover{background:#d63030}
+
+    /* ----------  CALCULATOR  ---------- */
+    .calculator{background:#2c2c2c;padding:15px;border-radius:10px;margin-top:35px}
+    .calc-display{background:#000;color:#0f0;font-size:22px;padding:10px;margin-bottom:10px;border-radius:5px;text-align:right;overflow:auto}
+    .calc-buttons{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+    .calc-buttons button{padding:15px;font-size:18px;background:#444;border:none;color:#fff;border-radius:5px;cursor:pointer}
+    .calc-buttons button:hover{background:#666}
+  </style>
+</head>
+<body>
+
+<header><h1>My Bank App</h1></header>
+
+<div class="container">
+  <!--  BALANCE + TOTALS  -->
+  <div id="balance">Balance: $0.00</div>
+  <div id="totals">
+    <span id="totalIncome">Income: $0.00</span>
+    <span id="totalExpense">Expense: $0.00</span>
+  </div>
+
+  <!--  ADD TRANSACTION  -->
+  <label for="description">Description:</label>
+  <input type="text" id="description" placeholder="e.g. Salary or Grocery">
+  <label for="amount">Amount:</label>
+  <input type="number" id="amount" placeholder="Enter amount">
+  <button onclick="addTransaction(true)">Add Income</button>
+  <button onclick="addTransaction(false)">Add Expense</button>
+
+  <!--  HISTORY  -->
+  <div class="history">
+    <h3>Transaction History</h3>
+    <div id="historyList"></div>
+  </div>
+
+  <!--  CALCULATOR  -->
+  <div class="calculator">
+    <h3>Quick Calculator</h3>
+    <div class="calc-display" id="calcDisplay">0</div>
+    <div class="calc-buttons">
+      <!-- First row -->
+      <button onclick="appendCalc('7')">7</button>
+      <button onclick="appendCalc('8')">8</button>
+      <button onclick="appendCalc('9')">9</button>
+      <button onclick="appendCalc('/')">/</button>
+      <!-- Second row -->
+      <button onclick="appendCalc('4')">4</button>
+      <button onclick="appendCalc('5')">5</button>
+      <button onclick="appendCalc('6')">6</button>
+      <button onclick="appendCalc('*')">*</button>
+      <!-- Third row -->
+      <button onclick="appendCalc('1')">1</button>
+      <button onclick="appendCalc('2')">2</button>
+      <button onclick="appendCalc('3')">3</button>
+      <button onclick="appendCalc('-')">-</button>
+      <!-- Fourth row -->
+      <button onclick="appendCalc('0')">0</button>
+      <button onclick="appendCalc('.')">.</button>
+      <button onclick="calculate()">=</button>
+      <button onclick="appendCalc('+')">+</button>
+      <!-- Clear -->
+      <button onclick="clearCalc()" style="grid-column: span 4;background:red">Clear</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ----------  PERSISTENCE HELPERS  ---------- */
+const STORAGE_KEY = 'bankAppTransactions';
+function saveTransactions(data){localStorage.setItem(STORAGE_KEY,JSON.stringify(data));}
+function loadTransactions(){return JSON.parse(localStorage.getItem(STORAGE_KEY)||'[]');}
+
+/* ----------  APP STATE  ---------- */
+let transactions = loadTransactions(); // array of {id,desc,amount}
+const balanceEl = document.getElementById('balance');
+const incomeEl  = document.getElementById('totalIncome');
+const expenseEl = document.getElementById('totalExpense');
+const historyEl = document.getElementById('historyList');
+
+/* ----------  INITIAL RENDER  ---------- */
+renderAll();
+
+/* ----------  ADD / DELETE TRANSACTIONS  ---------- */
+function addTransaction(isIncome){
+  const desc = document.getElementById('description').value.trim();
+  const amt  = parseFloat(document.getElementById('amount').value);
+  if(!desc || isNaN(amt) || amt<=0){alert('Enter valid description & amount');return;}
+
+  const signedAmt = isIncome? amt : -amt;
+  const tx = {id: Date.now(), desc, amount: signedAmt};
+  transactions.unshift(tx);
+  saveTransactions(transactions);
+  renderAll();
+
+  document.getElementById('description').value='';
+  document.getElementById('amount').value='';
+}
+
+function deleteTransaction(id){
+  transactions = transactions.filter(t=>t.id!==id);
+  saveTransactions(transactions);
+  renderAll();
+}
+
+/* ----------  RENDERING  ---------- */
+function renderAll(){
+  // totals
+  const balance   = transactions.reduce((p,c)=>p+c.amount,0);
+  const totalInc  = transactions.filter(t=>t.amount>0).reduce((p,c)=>p+c.amount,0);
+  const totalExp  = transactions.filter(t=>t.amount<0).reduce((p,c)=>p+Math.abs(c.amount),0);
+
+  balanceEl.textContent = `Balance: $${balance.toFixed(2)}`;
+  balanceEl.style.color = balance>=0? '#00ff00' : '#ff4040';
+  incomeEl.textContent  = `Income: $${totalInc.toFixed(2)}`;
+  expenseEl.textContent = `Expense: $${totalExp.toFixed(2)}`;
+
+  // history
+  historyEl.innerHTML='';
+  transactions.forEach(tx=>{
+    const div=document.createElement('div');
+    div.className='transaction ' + (tx.amount>=0? 'income':'expense');
+    div.innerHTML=`<span>${tx.desc}: ${tx.amount>=0?'+':'-'}$${Math.abs(tx.amount)}</span>
+                   <button class="delete-btn" onclick="deleteTransaction(${tx.id})">X</button>`;
+    historyEl.appendChild(div);
+  });
+}
+
+/* ----------  CALCULATOR  ---------- */
+let calcInput = localStorage.getItem('calcInput') || '';
+updateCalcDisplay(calcInput || '0');
+
+function appendCalc(val){calcInput+=val;updateCalcDisplay(calcInput);saveCalc();}
+function calculate(){
+  try{calcInput = eval(calcInput).toString();updateCalcDisplay(calcInput);saveCalc();}
+  catch{calcInput='';updateCalcDisplay('Error');localStorage.removeItem('calcInput');}
+}
+function clearCalc(){calcInput='';updateCalcDisplay('0');localStorage.removeItem('calcInput');}
+function updateCalcDisplay(txt){document.getElementById('calcDisplay').textContent=txt;}
+function saveCalc(){localStorage.setItem('calcInput',calcInput);}
+</script>
+
+</body>
+</html>
